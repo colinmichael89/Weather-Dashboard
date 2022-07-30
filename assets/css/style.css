@@ -1,0 +1,14 @@
+body {
+  column-gap: 10px;
+}
+
+.app-title {
+  padding: 10px;
+  background-image: linear-gradient(to bottom right, red, yellow);
+  text-align: center;
+  color: white;
+}
+
+.forecast-container {
+  display: flex;
+}

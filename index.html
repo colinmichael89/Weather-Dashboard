@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Merriweather:wght@700&display=swap"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <header class="hero">
+      <h1 class="app-title">Weather Dashboard</h1>
+    </header>
+
+    <div class="flex-row justify-space-between">
+      <div class="col-12 col-md-4">
+        <div class="card">
+          <form id="user-form" class="card-body">
+            <h3 class="search-label">Search for a City:</h3>
+            <input
+              name="search"
+              id="search"
+              type="text"
+              autofocus="true"
+              class="form-input"
+            />
+            <br />
+            <div class="d-grid col-6 mx-auto">
+              <button class="btn btn-primary submit" type="button">
+                Button
+              </button>
+            </div>
+          </form>
+        </div>
+        <ul class="previous-searches">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus
+          scelerisque eleifend donec pretium vulputate sapien nec sagittis
+          aliquam. Sed risus pretium quam vulputate dignissim. Suspendisse
+          faucibus interdum posuere lorem. Ultrices in iaculis nunc sed augue
+          lacus viverra. Parturient montes nascetur ridiculus mus mauris.
+          Integer eget aliquet nibh praesent tristique magna sit amet purus.
+          Felis imperdiet proin fermentum leo vel orci porta. Ut lectus arcu
+          bibendum at varius vel. Nunc pulvinar sapien et ligula ullamcorper
+          malesuada proin libero. Sed nisi lacus sed viverra tellus in hac.
+          Dignissim suspendisse in est ante in nibh mauris cursus. Elementum
+          sagittis vitae et leo duis. Eget sit amet tellus cras adipiscing enim
+          eu turpis. Faucibus a pellentesque sit amet. Euismod nisi porta lorem
+          mollis. Cras tincidunt lobortis feugiat vivamus at augue eget.
+        </ul>
+      </div>
+    </div>
+    <div class="flex-row justify-space-between">
+      <div class="col-12 col-md-4">
+        <div class="card">
+          <h2 class="searched-location">City, Date, Icon</h2>
+          <h4 class="temp">Temp: <span class="temp-api">API</span></h4>
+          <h4 class="wind">Wind: <span class="wind-api">API</span></h4>
+          <h4 class="humidity">
+            Humidity: <span class="humidity-api">API</span>
+          </h4>
+          <h4 class="uv-index">
+            UV Index: <span class="uv-index-api">API</span>
+          </h4>
+        </div>
+      </div>
+    </div>
+    <div class="main-container col-2">
+      <h3 class="forecast">5-Day Forecast</h3>
+      <div class="forecast-container">
+        <h4 class="day-1">Date, Icon</h4>
+        <h4 class="temp">Temp: <span class="temp-api">API</span></h4>
+        <h4 class="wind">Wind: <span class="wind-api">API</span></h4>
+        <h4 class="humidity">
+          Humidity: <span class="humidity-api">API</span>
+        </h4>
+      </div>
+      <div class="forecast-container">
+        <h4 class="day-1">Date, Icon</h4>
+        <h4 class="temp">Temp: <span class="temp-api">API</span></h4>
+        <h4 class="wind">Wind: <span class="wind-api">API</span></h4>
+        <h4 class="humidity">
+          Humidity: <span class="humidity-api">API</span>
+        </h4>
+      </div>
+      <div class="forecast-container">
+        <h4 class="day-1">Date, Icon</h4>
+        <h4 class="temp">Temp: <span class="temp-api">API</span></h4>
+        <h4 class="wind">Wind: <span class="wind-api">API</span></h4>
+        <h4 class="humidity">
+          Humidity: <span class="humidity-api">API</span>
+        </h4>
+      </div>
+      <div class="forecast-container">
+        <h4 class="day-1">Date, Icon</h4>
+        <h4 class="temp">Temp: <span class="temp-api">API</span></h4>
+        <h4 class="wind">Wind: <span class="wind-api">API</span></h4>
+        <h4 class="humidity">
+          Humidity: <span class="humidity-api">API</span>
+        </h4>
+      </div>
+      <div class="forecast-container">
+        <h4 class="day-1">Date, Icon</h4>
+        <h4 class="temp">Temp: <span class="temp-api">API</span></h4>
+        <h4 class="wind">Wind: <span class="wind-api">API</span></h4>
+        <h4 class="humidity">
+          Humidity: <span class="humidity-api">API</span>
+        </h4>
+      </div>
+    </div>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>
