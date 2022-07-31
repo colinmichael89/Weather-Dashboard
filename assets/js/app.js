@@ -18,11 +18,20 @@ const currentHumidity = document.querySelector("current-humidity");
 const currentUvIndex = document.querySelector("current-uv-index");
 
 // Functions
-function searchApi(event) {
-  const searchUrl = APIRoot + `/${currentCity}` + APIKey;
-  fetch(searchUrl); // default method = GET
-  console.log(response).then((response) => response.json());
-  // .then((data) => {
+function getApi() {
+  var queryUrl =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    currentCity +
+    "&appid=" +
+    APIKey;
+
+  fetch(queryUrl) // default method = GET
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    });
   //   // Create <li> in .previous-searches <ul>
   //   // Searched City is button w/ stored (local, array) Api data that updates page when clicked
   //   // Simultaneously
@@ -41,5 +50,5 @@ function searchApi(event) {
 }
 
 // special functions - event listeners
-submitButton.addEventListener(`click`, searchApi);
+submitButton.addEventListener(`click`, getApi);
 // logic // callbacks
