@@ -1,3 +1,11 @@
+body {
+  line-height: 1.5;
+}
+
+.dashboard-container {
+  margin: 10px;
+}
+
 .app-title {
   padding: 10px;
   background: linear-gradient(135deg, navy 60%, cyan);
@@ -21,10 +29,20 @@ form {
   width: 100%;
 }
 
+.previous-searches {
+  padding-right: 10px;
+}
+
+.current-forecast {
+  padding-left: 4px;
+  margin-right: 20px;
+}
+
 .day {
   background: navy;
   color: white;
   padding: 4px;
+  margin-bottom: 10px;
 }
 
 .forecast {
