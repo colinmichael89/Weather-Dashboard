@@ -1,14 +1,37 @@
-body {
-  column-gap: 10px;
-}
-
 .app-title {
   padding: 10px;
-  background-image: linear-gradient(to bottom right, red, yellow);
+  background: linear-gradient(135deg, navy 60%, cyan);
   text-align: center;
   color: white;
 }
 
-.forecast-container {
-  display: flex;
+button {
+  margin-top: 10px;
+  background-color: navy;
+  justify-content: center;
+}
+
+.no-border {
+  border-style: none;
+}
+
+input,
+form {
+  display: block;
+  width: 100%;
+}
+
+.day {
+  background: navy;
+  color: white;
+  padding: 4px;
+}
+
+.forecast {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.margin-right {
+  margin-right: 20px;
 }
