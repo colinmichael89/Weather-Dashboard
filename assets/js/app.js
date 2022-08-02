@@ -16,7 +16,7 @@ const currentUvIndex = document.querySelector("#current-uv-index");
 const forecastInfo = document.querySelector("#forecast-data");
 
 // Arrays
-var savedSearches = [];
+var searchArray = [];
 
 // Functions
 function currentWeatherApi() {
@@ -36,24 +36,32 @@ function currentWeatherApi() {
       console.log(data);
       const currentWeather = data;
       var iconImg = currentWeather.weather[0].icon;
-      iconImg.src = "http://openweathermap.org/img/wn/" + iconImg + "@2x.png";
-      console.log(iconImg.src);
+      iconImgsrc = "http://openweathermap.org/img/wn/" + iconImg + "@2x.png";
+      console.log(iconImgsrc);
 
-      // Create <li> in .previous-searches <ul>
-      // Searched City is button w/ stored (local, array) Api data that updates page when clicked
       // var cities = document.querySelector(".previous-searches");
       // function searchHistory() {
-      //   for (var i = 0; i < searchArray.length; index++) {
-      //     const searchedCity = searchArray[i];
+      // for (var i = 0; i < searchArray.length; index++) {
+      //   const searchedCity = searchArray[i];
 
-      //     var searchList = document.createElement(`li`);
-      //     searchList.setAttribute(`class`, `list-item`);
-      //     searchList.textContent = searchedCity.value.trim();
-      //     cities.appendChild(searchList);
+      //   var searchList = document.createElement(`li`);
+      //   searchList.setAttribute(`class`, `list-item`);
+      //   searchList.textContent = searchedCity.value.trim();
+      //   cities.appendChild(searchList);
 
-      //     cities.appendChild("search-container");
-      //   }
+      //   cities.appendChild("search-container");
       // }
+
+      // if (searchedCity.value === "") {
+      //   searchedCity.textContent = "Enter a City";
+      // } else {
+      //   renderLocalstorage();
+      //   var search = searchedCity.value;
+      //   searchArray.push(search);
+
+      //   localStorage.setItem("searchArray", JSON.stringify(searchArray));
+
+      //   showPrevSearches(searchArray);
 
       currentCity.textContent = currentWeather.name + "  ";
       currentDate.textContent =
@@ -62,7 +70,7 @@ function currentWeatherApi() {
       currentWind.textContent = currentWeather.wind.speed + " MPH";
       currentHumidity.textContent = currentWeather.main.humidity + " %";
       currentUvIndex.textContent = currentWeather.main.temp;
-      currentIcon.innerHTML = iconImg.src;
+      currentIcon.src = iconImgsrc;
     });
 }
 
@@ -128,6 +136,13 @@ function displayForecast(data) {
   }
 }
 
+function renderLocalstorage() {
+  var searchArray = JSON.parse(localStorage.getItem("searchArray"));
+  if (localstorageArray !== null) {
+    searchArray = [];
+    searchArray = localstorageArray;
+  }
+}
 // Special Functions - Event Listeners
 function clearSearch() {
   forecastContainer.innerHTML = "";
