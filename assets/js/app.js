@@ -28,6 +28,36 @@ function currentWeatherApi() {
     APIKey +
     "&units=imperial";
 
+  localStorage.setItem("searchArray", JSON.stringify(searchArray));
+  var search = searchedCity.value;
+  searchArray.push(search);
+
+  // function renderLocalstorage(searchArray) {
+  //   var cities = document.querySelector(".previous-searches");
+  //   for (var i = 0; i < searchArray.length; i++) {
+  //     var searchedCity = searchArray[i];
+  //     var listItem = document.createElement("li");
+  //     listItem.textContent = searchedCity;
+
+  // for (var i = 0; i < searchArray.length; index++) {
+  //   const searchedCity = searchArray[i];
+
+  // }
+
+  // if (searchedCity.value === "") {
+  //   searchedCity.textContent = "Enter a City";
+  // } else {
+  //   renderLocalstorage();
+
+  //   var searchList = document.createElement(`li`);
+  //   searchList.setAttribute(`class`, `list-item`);
+  //   searchList.textContent = searchedCity.value.trim();
+  //   cities.appendChild(searchList);
+
+  //   cities.appendChild("search-container");
+
+  //   showPrevSearches(searchArray);
+
   fetch(cityQueryUrl)
     .then(function (response) {
       return response.json();
@@ -38,30 +68,6 @@ function currentWeatherApi() {
       var iconImg = currentWeather.weather[0].icon;
       iconImgsrc = "http://openweathermap.org/img/wn/" + iconImg + "@2x.png";
       console.log(iconImgsrc);
-
-      // var cities = document.querySelector(".previous-searches");
-      // function searchHistory() {
-      // for (var i = 0; i < searchArray.length; index++) {
-      //   const searchedCity = searchArray[i];
-
-      //   var searchList = document.createElement(`li`);
-      //   searchList.setAttribute(`class`, `list-item`);
-      //   searchList.textContent = searchedCity.value.trim();
-      //   cities.appendChild(searchList);
-
-      //   cities.appendChild("search-container");
-      // }
-
-      // if (searchedCity.value === "") {
-      //   searchedCity.textContent = "Enter a City";
-      // } else {
-      //   renderLocalstorage();
-      //   var search = searchedCity.value;
-      //   searchArray.push(search);
-
-      //   localStorage.setItem("searchArray", JSON.stringify(searchArray));
-
-      //   showPrevSearches(searchArray);
 
       currentCity.textContent = currentWeather.name + "  ";
       currentDate.textContent =
@@ -86,8 +92,7 @@ function forecastApi() {
     .then(function (response) {
       return response.json();
     })
-    // Need to tell it what info to grab as it loops through data.. Date, icon, temp, wind, humidity
-    // Can I just poplulate forecast containers with the info without individual divs?? Do I need another forLoop to populate containers or do I assign different ids to each container based on index [0 - 4]?????????!!!!!!!!!!
+
     .then(function (data) {
       console.log(data);
       displayForecast(data);
@@ -96,7 +101,6 @@ function forecastApi() {
 
 var forecastContainer = document.querySelector(".forecast-container");
 function displayForecast(data) {
-  // Can I change the index to get the correct daily forecast data? ie i + 10 or something
   for (var i = 0; i < 40; i += 8) {
     console.log(i);
     var card = document.createElement("div");
@@ -136,13 +140,6 @@ function displayForecast(data) {
   }
 }
 
-function renderLocalstorage() {
-  var searchArray = JSON.parse(localStorage.getItem("searchArray"));
-  if (localstorageArray !== null) {
-    searchArray = [];
-    searchArray = localstorageArray;
-  }
-}
 // Special Functions - Event Listeners
 function clearSearch() {
   forecastContainer.innerHTML = "";
@@ -152,7 +149,6 @@ submitButton.addEventListener(`click`, () => {
   currentWeatherApi();
   forecastApi();
   clearSearch();
+  renderLocalstorage;
   // searchHistory();
-  // handleSearchFormSubmit();
-  //   searchHistory();
 });
