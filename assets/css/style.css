@@ -53,3 +53,8 @@ form {
 .margin-right {
   margin-right: 20px;
 }
+
+.forecast-container {
+  display: flex;
+  justify-content: space-between;
+}
