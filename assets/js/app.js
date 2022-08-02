@@ -8,12 +8,15 @@ const searchedCity = document.querySelector(".form-input");
 const submitButton = document.querySelector(".submit");
 const currentCity = document.querySelector("#current-city");
 const currentDate = document.querySelector("#current-date");
-const currentIcon = document.querySelector("#current-weather-icon");
+const currentIcon = document.querySelector(".current-weather-icon");
 const currentTemp = document.querySelector("#current-temp");
 const currentWind = document.querySelector("#current-wind");
 const currentHumidity = document.querySelector("#current-humidity");
 const currentUvIndex = document.querySelector("#current-uv-index");
 const forecastInfo = document.querySelector("#forecast-data");
+
+// Arrays
+var savedSearches = [];
 
 // Functions
 function currentWeatherApi() {
@@ -33,32 +36,33 @@ function currentWeatherApi() {
       console.log(data);
       const currentWeather = data;
       var iconImg = currentWeather.weather[0].icon;
-      Image = "http://openweathermap.org/img/wn/" + iconImg + "@2x.png";
+      iconImg.src = "http://openweathermap.org/img/wn/" + iconImg + "@2x.png";
+      console.log(iconImg.src);
+
       // Create <li> in .previous-searches <ul>
       // Searched City is button w/ stored (local, array) Api data that updates page when clicked
-      //   var cities = document.querySelector(".previous-searches");
-      //   function searchHistory() {
-      //     for (var i = 0; i < searchArray.length; index++) {
-      //       const searchedCity = searchArray[i];
+      // var cities = document.querySelector(".previous-searches");
+      // function searchHistory() {
+      //   for (var i = 0; i < searchArray.length; index++) {
+      //     const searchedCity = searchArray[i];
 
-      //       var searchList = document.createElement(`li`);
-      //       searchList.setAttribute(`class`, `list-item`);
-      //       searchList.textContent = searchedCity.value.trim();
-      //       cities.appendChild(searchList);
+      //     var searchList = document.createElement(`li`);
+      //     searchList.setAttribute(`class`, `list-item`);
+      //     searchList.textContent = searchedCity.value.trim();
+      //     cities.appendChild(searchList);
 
-      //       forecastContainer.appendChild(card);
-      //     }
+      //     cities.appendChild("search-container");
       //   }
+      // }
 
       currentCity.textContent = currentWeather.name + "  ";
       currentDate.textContent =
         moment.unix(data.dt).format("MM-DD-YYYY") + "  ";
-      currentCity.iconImage = currentWeather.weather[0].icon;
       currentTemp.textContent = Math.round(currentWeather.main.temp) + " F";
       currentWind.textContent = currentWeather.wind.speed + " MPH";
       currentHumidity.textContent = currentWeather.main.humidity + " %";
       currentUvIndex.textContent = currentWeather.main.temp;
-      currentIcon.Image = iconCurrent;
+      currentIcon.innerHTML = iconImg.src;
     });
 }
 
@@ -98,10 +102,11 @@ function displayForecast(data) {
     );
     card.appendChild(date);
 
-    var icon = document.createElement(`a`);
-    icon.setAttribute(`class`, `icon`);
-    // Wrong
-    icon.innerHTML = data.list[i].weather[0].icon;
+    var icon = document.createElement(`img`);
+    icon.setAttribute(`class`, `icon`, "src", ``);
+    var iconImg = data.list[i].weather[0].icon;
+    icon.src = "http://openweathermap.org/img/wn/" + iconImg + "@2x.png";
+    icon.innerHTML = icon.src;
     card.appendChild(icon);
 
     var temp = document.createElement(`h6`);
@@ -124,10 +129,15 @@ function displayForecast(data) {
 }
 
 // Special Functions - Event Listeners
+function clearSearch() {
+  forecastContainer.innerHTML = "";
+}
 
 submitButton.addEventListener(`click`, () => {
   currentWeatherApi();
   forecastApi();
+  clearSearch();
+  // searchHistory();
   // handleSearchFormSubmit();
   //   searchHistory();
 });
