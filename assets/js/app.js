@@ -1,7 +1,20 @@
 // Define Variables
 const APIRoot = "https://api.openweathermap.org/data/2.5/weather";
 const APIKey = "8a1b9ee606209a0862fbdcd28f56a206";
-// const iconImage = "https://openweathermap.org/img/w/" + icon + ".png";
+
+// var localstorageArray = JSON.parse(localStorage.getItem("searchArray"));
+// var cities = document.querySelector(".previous-searches");
+// for (var i = 0; i < searchArray.length; i++) {
+//   var citySearch = searchArray[i];
+//   var listItem = document.createElement("li");
+//   var listBtn = document.createElement("button");
+//   searchList.setAttribute(`class`, `list-item`);
+//   listItem.textContent = citySearch;
+// }
+// searchList.textContent = citySearch.value;
+// cities.appendChild(searchList);
+
+// cities.appendChild("search-container");
 
 // Query Selectors
 const searchedCity = document.querySelector(".form-input");
@@ -31,32 +44,6 @@ function currentWeatherApi() {
   localStorage.setItem("searchArray", JSON.stringify(searchArray));
   var search = searchedCity.value;
   searchArray.push(search);
-
-  // function renderLocalstorage(searchArray) {
-  //   var cities = document.querySelector(".previous-searches");
-  //   for (var i = 0; i < searchArray.length; i++) {
-  //     var searchedCity = searchArray[i];
-  //     var listItem = document.createElement("li");
-  //     listItem.textContent = searchedCity;
-
-  // for (var i = 0; i < searchArray.length; index++) {
-  //   const searchedCity = searchArray[i];
-
-  // }
-
-  // if (searchedCity.value === "") {
-  //   searchedCity.textContent = "Enter a City";
-  // } else {
-  //   renderLocalstorage();
-
-  //   var searchList = document.createElement(`li`);
-  //   searchList.setAttribute(`class`, `list-item`);
-  //   searchList.textContent = searchedCity.value.trim();
-  //   cities.appendChild(searchList);
-
-  //   cities.appendChild("search-container");
-
-  //   showPrevSearches(searchArray);
 
   fetch(cityQueryUrl)
     .then(function (response) {
@@ -149,6 +136,6 @@ submitButton.addEventListener(`click`, () => {
   currentWeatherApi();
   forecastApi();
   clearSearch();
-  renderLocalstorage;
+  // renderLocalstorage();
   // searchHistory();
 });
