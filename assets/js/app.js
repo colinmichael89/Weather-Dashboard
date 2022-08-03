@@ -21,20 +21,7 @@ function searchHistory() {
   cities.appendChild(searchList);
   searchContainer.appendChild(cities);
 }
-// function searchHistory() {
-//   var searchContainer = document.querySelector(".search-container");
-//   var cities = document.querySelector(".previous-searches");
-//   // for (var i = 0; i < searchArray.length; i++) {
-//   //   var citySearch = searchArray[i];
-//   //   console.log(citySearch);
-//   var searchList = document.createElement("li");
-//   searchList.textContent = citySearch;
-//   searchList.setAttribute(`class`, `list-item`);
 
-//   cities.appendChild(searchList);
-
-//   searchContainer.appendChild(cities);
-// }
 // Query Selectors
 const searchedCity = document.querySelector(".form-input");
 const submitButton = document.querySelector(".submit");
@@ -153,6 +140,4 @@ submitButton.addEventListener(`click`, () => {
   forecastApi();
   clearSearch();
   searchHistory();
-  // renderLocalstorage();
-  // searchHistory();
 });
