@@ -3,25 +3,38 @@ const APIRoot = "https://api.openweathermap.org/data/2.5/weather";
 const APIKey = "8a1b9ee606209a0862fbdcd28f56a206";
 // Arrays
 var searchArray = [];
+var savedCities = [];
+
+var localstorageArray = JSON.parse(localStorage.getItem("searchArray"));
 
 function searchHistory() {
   var localstorageArray = JSON.parse(localStorage.getItem("searchArray"));
   var searchContainer = document.querySelector(".search-container");
   var cities = document.querySelector(".previous-searches");
-  for (var i = 0; i < searchArray.length; i++) {
-    var citySearch = searchArray[i];
-    console.log(citySearch);
-    var searchList = document.createElement("li");
-    var listBtn = document.createElement("button");
-    listBtn.value = localstorageArray;
-    searchList.setAttribute(`class`, `list-item`);
-    searchList.textContent = citySearch;
-
-    cities.appendChild(searchList);
-
-    searchContainer.appendChild(cities);
-  }
+  var searchList = document.createElement("li");
+  var citySearch = searchArray.pop();
+  console.log(citySearch);
+  var listBtn = document.createElement("button");
+  listBtn.value = localstorageArray;
+  searchList.setAttribute(`class`, `list-item`);
+  searchList.textContent = citySearch;
+  cities.appendChild(searchList);
+  searchContainer.appendChild(cities);
 }
+// function searchHistory() {
+//   var searchContainer = document.querySelector(".search-container");
+//   var cities = document.querySelector(".previous-searches");
+//   // for (var i = 0; i < searchArray.length; i++) {
+//   //   var citySearch = searchArray[i];
+//   //   console.log(citySearch);
+//   var searchList = document.createElement("li");
+//   searchList.textContent = citySearch;
+//   searchList.setAttribute(`class`, `list-item`);
+
+//   cities.appendChild(searchList);
+
+//   searchContainer.appendChild(cities);
+// }
 // Query Selectors
 const searchedCity = document.querySelector(".form-input");
 const submitButton = document.querySelector(".submit");
