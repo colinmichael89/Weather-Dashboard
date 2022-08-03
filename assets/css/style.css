@@ -4,6 +4,7 @@ body {
 
 .dashboard-container {
   margin: 10px;
+  display: flex;
 }
 
 .app-title {
