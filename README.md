@@ -8,4 +8,4 @@ This Weather Dashboard allows the user to search a city and get weather updates 
 
 ## Link to Functioning Application
 
-https://colinmichael89.github.io/Interactive-Weather-Dashboard/
+https://colinmichael89.github.io/Weather-Dashboard/
